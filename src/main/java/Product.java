@@ -1,14 +1,8 @@
 public abstract class Product {
 
-    public static final int EXPIRIED_DAY = 0;
-
-    public static final int COMMON_QUALITY_DROP_1 = 1;
-    public static final int FAST_QUALITY_DROP_2 = 2;
-
     public static final int MIN_QUALITY = 0;
     public static final int MAX_QUALITY = 50;
-    public static final String AGED_BRIE = "AgedBrie";
-    public static final String NORMAL = "Normal";
+
     Integer quality;
     private String name;
     Integer remainSellInDays;
@@ -20,17 +14,12 @@ public abstract class Product {
         validQuality(quality);
     }
 
-    public void validQuality(Integer quality) {
-        if (quality < MIN_QUALITY || quality > MAX_QUALITY)
-            throw new IllegalArgumentException("quality should between 0 to 50.");
-    }
+    public abstract void validQuality(Integer quality);
 
     public void updateProductInfo() {
         updateRemainSellInDays();
 
         updateQuality();
-        updateQueryWhenLessThanMin();
-        updateQualityWhenExceedMax();
     }
 
     public abstract void updateRemainSellInDays();
@@ -70,5 +59,14 @@ public abstract class Product {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "name='" + name +
+                ", quality=" + quality + '\'' +
+                ", remainSellInDays=" + remainSellInDays +
+                '}';
     }
 }
