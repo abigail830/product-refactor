@@ -1,4 +1,4 @@
-public class Product {
+public abstract class Product {
 
     public static final int EXPIRIED_DAY = 0;
 
@@ -11,7 +11,7 @@ public class Product {
     public static final String NORMAL = "Normal";
     Integer quality;
     private String name;
-    private Integer remainSellInDays;
+    Integer remainSellInDays;
 
     public Product(String name, Integer remainSellInDays, Integer quality) {
         this.name = name;
@@ -20,37 +20,22 @@ public class Product {
         validQuality(quality);
     }
 
-    private void validQuality(Integer quality) {
+    public void validQuality(Integer quality) {
         if (quality < MIN_QUALITY || quality > MAX_QUALITY)
             throw new IllegalArgumentException("quality should between 0 to 50.");
     }
 
     public void updateProductInfo() {
         updateRemainSellInDays();
+
         updateQuality();
-    }
-
-    private void updateRemainSellInDays() {
-        if (this.name.equals(AGED_BRIE)) {
-            this.remainSellInDays += 1;
-        } else {
-            this.remainSellInDays -= 1;
-        }
-    }
-
-    public void updateQuality() {
-        if (this.name.equals(AGED_BRIE)) {
-            this.quality += 1;
-        } else {
-            if (this.remainSellInDays < EXPIRIED_DAY) {
-                this.quality -= FAST_QUALITY_DROP_2;
-            } else {
-                this.quality -= COMMON_QUALITY_DROP_1;
-            }
-        }
         updateQueryWhenLessThanMin();
         updateQualityWhenExceedMax();
     }
+
+    public abstract void updateRemainSellInDays();
+
+    public abstract void updateQuality();
 
     public void updateQueryWhenLessThanMin() {
         if (this.quality < MIN_QUALITY)

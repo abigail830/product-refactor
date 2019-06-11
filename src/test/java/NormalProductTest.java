@@ -1,12 +1,12 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-class ProductTest {
+class NormalProductTest {
 
     @Test
     void test_quality_and_sellIn_should_reduce_1_when_date_passed() {
         //given
-        final Product product = new Product(Product.NORMAL, 10, 20);
+        final Product product = new NormalProduct(10, 20);
         //when
         product.updateProductInfo();
         //then
@@ -17,7 +17,7 @@ class ProductTest {
     @Test
     void test_quality_should_reduce_2_when_sellIn_date_expiried() {
         //given
-        final Product product = new Product(Product.NORMAL, 0, 2);
+        final Product product = new NormalProduct(0, 2);
         //when
         product.updateProductInfo();
         //then
@@ -28,7 +28,7 @@ class ProductTest {
     @Test
     void test_quality_should_remain_0_when_date_pass() {
         //given
-        final Product product = new Product(Product.NORMAL, 0, 0);
+        final Product product = new NormalProduct(0, 0);
         //when
         product.updateProductInfo();
         //then
@@ -39,7 +39,7 @@ class ProductTest {
     @Test
     void test_quality_should_within_50() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            final Product product = new Product(Product.NORMAL, 0, 51);
+            final Product product = new NormalProduct(0, 51);
         });
 
     }
@@ -47,29 +47,8 @@ class ProductTest {
     @Test
     void test_quality_should_bigger_than_0() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            final Product product = new Product(Product.NORMAL, 0, -1);
+            final Product product = new NormalProduct(0, -1);
         });
     }
 
-    @Test
-    void test_quality_and_sellIn_should_increase_1_when_date_passed() {
-        //given
-        final Product product = new Product(Product.AGED_BRIE, 10, 20);
-        //when
-        product.updateProductInfo();
-        //then
-        Assertions.assertEquals(21, product.getQuality());
-        Assertions.assertEquals(11, product.getRemainSellInDays());
-    }
-
-    @Test
-    void test_quality_should_keep_as_max_when_exceed() {
-        //given
-        final Product product = new Product(Product.AGED_BRIE, 50, 50);
-        //when
-        product.updateProductInfo();
-        //then
-        Assertions.assertEquals(50, product.getQuality());
-        Assertions.assertEquals(51, product.getRemainSellInDays());
-    }
 }

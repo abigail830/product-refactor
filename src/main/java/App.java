@@ -14,8 +14,8 @@ public class App {
 
     private static List<Product> importProduct() {
         return Arrays.asList(
-                new Product(Product.NORMAL, 10, 20),
-                new Product(Product.AGED_BRIE, 0, 10));
+                new NormalProduct(10, 20),
+                new AgedBrieProduct(0, 10));
     }
 
 
