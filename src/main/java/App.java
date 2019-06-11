@@ -19,7 +19,8 @@ public class App {
         return Arrays.asList(
                 new NormalProduct(10, 20),
                 new AgedBrieProduct(10),
-                new SulfurasProduct());
+                new SulfurasProduct(),
+                new BackStagePassProduct(11, 300));
     }
 
 

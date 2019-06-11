@@ -17,9 +17,9 @@ public abstract class Product {
     public abstract void validQuality(Integer quality);
 
     public void updateProductInfo() {
-        updateRemainSellInDays();
 
         updateQuality();
+        updateRemainSellInDays();
     }
 
     public abstract void updateRemainSellInDays();

@@ -21,7 +21,7 @@ public class NormalProduct extends Product {
     }
 
     public void updateQuality() {
-        if (this.remainSellInDays < EXPIRIED_DAY) {
+        if (this.remainSellInDays <= EXPIRIED_DAY) {
             this.quality -= FAST_QUALITY_DROP_2;
         } else {
             this.quality -= COMMON_QUALITY_DROP_1;
