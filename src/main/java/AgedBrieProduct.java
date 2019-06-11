@@ -2,8 +2,8 @@ public class AgedBrieProduct extends Product {
 
     public static final String AGED_BRIE = "AgedBrie";
 
-    public AgedBrieProduct(Integer remainSellInDays, Integer quality) {
-        super(AGED_BRIE, remainSellInDays, quality);
+    public AgedBrieProduct(Integer quality) {
+        super(AGED_BRIE, 0, quality);
     }
 
     public void updateRemainSellInDays() {
