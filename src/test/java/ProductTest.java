@@ -61,4 +61,15 @@ class ProductTest {
         Assertions.assertEquals(21, product.getQuality());
         Assertions.assertEquals(11, product.getRemainSellInDays());
     }
+
+    @Test
+    void test_quality_should_keep_as_max_when_exceed() {
+        //given
+        final Product product = new Product(Product.AGED_BRIE, 50, 50);
+        //when
+        product.updateProductInfo();
+        //then
+        Assertions.assertEquals(50, product.getQuality());
+        Assertions.assertEquals(51, product.getRemainSellInDays());
+    }
 }
