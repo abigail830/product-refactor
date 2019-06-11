@@ -18,8 +18,8 @@ public abstract class Product {
 
     public void updateProductInfo() {
 
-        updateQuality();
         updateRemainSellInDays();
+        updateQuality();
     }
 
     public abstract void updateRemainSellInDays();

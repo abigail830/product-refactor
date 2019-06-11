@@ -6,12 +6,12 @@ class BackStagePassProductTest {
     @Test
     void test_quality_should_increase_1_when_date_passed_with_sellIn_more_than_10() {
         //given
-        final Product product = new BackStagePassProduct(11, 20);
+        final Product product = new BackStagePassProduct(12, 20);
         //when
         product.updateProductInfo();
         //then
         Assertions.assertEquals(21, product.getQuality());
-        Assertions.assertEquals(10, product.getRemainSellInDays());
+        Assertions.assertEquals(11, product.getRemainSellInDays());
     }
 
     @Test
