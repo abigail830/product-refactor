@@ -11,7 +11,7 @@ class SulfurasProductTest {
         product.updateProductInfo();
         //then
         Assertions.assertEquals(80, product.getQuality());
-        Assertions.assertEquals(1, product.getRemainSellInDays());
+        Assertions.assertEquals(59, product.getRemainSellInDays());
     }
 
 
