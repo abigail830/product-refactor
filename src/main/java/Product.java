@@ -26,7 +26,7 @@ public abstract class Product {
 
     public abstract void updateQuality();
 
-    public void updateQueryWhenLessThanMin() {
+    public void updateQualityWhenLessThenMin() {
         if (this.quality < MIN_QUALITY)
             this.quality = MIN_QUALITY;
     }

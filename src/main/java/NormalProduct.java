@@ -27,7 +27,7 @@ public class NormalProduct extends Product {
             this.quality -= COMMON_QUALITY_DROP_1;
         }
 
-        updateQueryWhenLessThanMin();
+        updateQualityWhenLessThenMin();
 
     }
 }
